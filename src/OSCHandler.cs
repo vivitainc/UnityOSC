@@ -95,9 +95,9 @@ public class OSCHandler : MonoBehaviour
         CreateServer("OscSampleApp", oscPort);
     }
 
-    public void clientInit(string serverId, string ip)
+    public void clientInit(string ip)
     {
-        CreateClient(serverId, IPAddress.Parse(ip), oscPort);
+        CreateClient("OscTestClient", IPAddress.Parse(ip), oscPort);
     }
 
 
@@ -227,12 +227,12 @@ public class OSCHandler : MonoBehaviour
     /// <param name="value">
     /// A <see cref="T"/>
     /// </param>
-    public void SendMessageToClient<T>(string clientId, string address, T value)
+    public void SendMessageToClient<T>(string address, T value)
     {
         List<object> temp = new List<object>();
         temp.Add(value);
 
-        SendMessageToClient(clientId, address, temp);
+        SendMessageToClient("OscTestClient", address, temp);
     }
 
     /// <summary>
