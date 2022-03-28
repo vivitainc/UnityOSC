@@ -88,14 +88,12 @@ public class OSCHandler : MonoBehaviour
     private const int _loglength = 100;
     #endregion
 
-    private const int oscPort = 22222;
-
-    public void serverInit()
+    public void serverInit(int oscPort)
     {
         CreateServer("OscSampleApp", oscPort);
     }
 
-    public void clientInit(string ip)
+    public void clientInit(string ip, int oscPort)
     {
         CreateClient("OscTestClient", IPAddress.Parse(ip), oscPort);
     }
